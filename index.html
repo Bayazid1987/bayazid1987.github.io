@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Modhumoti Trade Link</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
+      direction: ltr;
     }
     header {
       background-color: #1b5e20;
@@ -20,7 +22,8 @@
       background-color: #2e7d32;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
       padding: 10px;
     }
     nav a {
@@ -28,14 +31,36 @@
       text-decoration: none;
       font-weight: bold;
     }
-    .section {
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
       padding: 40px 20px;
     }
-    .section:nth-child(even) {
+    section:nth-child(odd) {
       background-color: #f1f8e9;
     }
-    .section:nth-child(odd) {
+    section:nth-child(even) {
       background-color: #ffffff;
+    }
+    .logo {
+      width: 120px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .product-card {
+      width: 150px;
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
     }
     footer {
       background-color: #1b5e20;
@@ -43,14 +68,31 @@
       text-align: center;
       padding: 20px;
     }
-    .logo {
-      width: 120px;
-      display: block;
-      margin: 0 auto 10px;
+    .lang-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #eee;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .lang-toggle button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #2e7d32;
+      color: white;
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
+  <div class="lang-toggle">
+    <button onclick="setLang('bn')">বাংলা</button>
+    <button onclick="setLang('en')">English</button>
+  </div>
+
   <header>
     <img src="logo.png" alt="Modhumoti Logo" class="logo">
     <h1>Modhumoti Trade Link</h1>
@@ -58,67 +100,68 @@
   </header>
 
   <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="#home">Home / হোম</a>
+    <a href="#services">Services / সেবা</a>
+    <a href="#products">Products / পণ্য</a>
+    <a href="#about">About / পরিচিতি</a>
+    <a href="#contact">Contact / যোগাযোগ</a>
   </nav>
 
-  <div class="section" id="home">
-    <h2>Welcome to Modhumoti Trade Link</h2>
-    <p>We specialize in import-export and safe delivery of agricultural products globally.</p>
-  </div>
+  <section id="home">
+    <h2 data-en="Welcome to Modhumoti Trade Link" data-bn="মধুমতি ট্রেড লিংকে স্বাগতম">Welcome to Modhumoti Trade Link</h2>
+    <p data-en="We export fresh fruits and vegetables with care." data-bn="আমরা সততার সাথে তাজা ফলমূল ও সবজি রপ্তানি করি।">We export fresh fruits and vegetables with care.</p>
+  </section>
 
-  <div class="section" id="services">
-    <h2>Our Services</h2>
+  <section id="services">
+    <h2 data-en="Our Services" data-bn="আমাদের সেবা">Our Services</h2>
     <ul>
-      <li>Fresh fruits and vegetables export from Bangladesh</li>
-      <li>Betel leaf (পান পাতা) export</li>
-      <li>Packing and custom clearing service</li>
-      <li>Import support for agricultural goods</li>
+      <li data-en="Fruit and vegetable export" data-bn="ফলমূল ও সবজি রপ্তানি">Fruit and vegetable export</li>
+      <li data-en="Betel leaf delivery" data-bn="পান পাতা সরবরাহ">Betel leaf delivery</li>
+      <li data-en="Packing & Custom Clearing" data-bn="প্যাকিং ও কাস্টম ক্লিয়ারিং">Packing & Custom Clearing</li>
+      <li data-en="Import/Export Consultancy" data-bn="আমদানি-রপ্তানি পরামর্শ">Import/Export Consultancy</li>
     </ul>
-  </div>
+  </section>
 
-  <div class="section" id="products">
-    <h2>Our Products | আমাদের পণ্য</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-      <div style="width: 150px; text-align: center;">
-        <img src="https://via.placeholder.com/150?text=Betel+Leaf+(পান+পাতা)" alt="Betel Leaf (পান পাতা)" style="width: 100%; border-radius: 8px;">
-        <p>Betel Leaf (পান পাতা)</p>
+  <section id="products">
+    <h2 data-en="Our Products" data-bn="আমাদের পণ্য">Our Products</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150?text=Betel+Leaf" alt="Betel Leaf">
+        <p data-en="Betel Leaf" data-bn="পান পাতা">Betel Leaf</p>
       </div>
-      <div style="width: 150px; text-align: center;">
-        <img src="https://via.placeholder.com/150?text=Red+Potato+(লাল+গোল+আলু)" alt="Red Potato (লাল গোল আলু)" style="width: 100%; border-radius: 8px;">
-        <p>Red Potato (লাল গোল আলু)</p>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150?text=Red+Potato" alt="Red Potato">
+        <p data-en="Red Potato" data-bn="লাল আলু">Red Potato</p>
       </div>
-      <div style="width: 150px; text-align: center;">
-        <img src="https://via.placeholder.com/150?text=Pointed+Gourd+(পটল)" alt="Pointed Gourd (পটল)" style="width: 100%; border-radius: 8px;">
-        <p>Pointed Gourd (পটল)</p>
-      </div>
-      <div style="width: 150px; text-align: center;">
-        <img src="https://via.placeholder.com/150?text=Green+Chili+(কাঁচা+মরিচ)" alt="Green Chili (কাঁচা মরিচ)" style="width: 100%; border-radius: 8px;">
-        <p>Green Chili (কাঁচা মরিচ)</p>
-      </div>
-      <div style="width: 150px; text-align: center;">
-        <img src="https://via.placeholder.com/150?text=Bottle+Gourd+(লাউ)" alt="Bottle Gourd (লাউ)" style="width: 100%; border-radius: 8px;">
-        <p>Bottle Gourd (লাউ)</p>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150?text=Green+Chili" alt="Green Chili">
+        <p data-en="Green Chili" data-bn="কাঁচা মরিচ">Green Chili</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="section" id="about">
-    <h2>About Us</h2>
-    <p>Modhumoti Trade Link is based in Dhaka, Bangladesh. We ensure quality, compliance, and timely delivery in every shipment. Office: 12 L Mallik Complex, Purana Paltan, Paltan, Dhaka-1000.</p>
-  </div>
+  <section id="about">
+    <h2 data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</h2>
+    <p data-en="We are a Bangladeshi export company committed to quality." data-bn="আমরা একটি বাংলাদেশি রপ্তানি কোম্পানি যা গুণগত মানে প্রতিশ্রুতিবদ্ধ।">We are a Bangladeshi export company committed to quality.</p>
+  </section>
 
-  <div class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Phone: +8801713584479</p>
-    <p>Email: modhumotitradelink@gmail.com</p>
-  </div>
+  <section id="contact">
+    <h2 data-en="Contact Us" data-bn="যোগাযোগ করুন">Contact Us</h2>
+    <p><strong data-en="Phone" data-bn="ফোন">Phone:</strong> +8801713584479</p>
+    <p><strong data-en="Email" data-bn="ইমেইল">Email:</strong> modhumotitradelink@gmail.com</p>
+    <p><strong data-en="Address" data-bn="ঠিকানা">Address:</strong> 12 L Mallik Complex, Purana Paltan, Dhaka-1000</p>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Modhumoti Trade Link. All rights reserved.</p>
+    <p>&copy; 2025 Modhumoti Trade Link</p>
   </footer>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.innerText = el.getAttribute(`data-${lang}`);
+      });
+    }
+  </script>
 </body>
 </html>
