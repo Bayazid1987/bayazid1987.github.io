@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       scroll-behavior: smooth;
-      direction: ltr;
+      background-color: #f9fbe7;
     }
     header {
       background-color: #1b5e20;
@@ -22,36 +22,45 @@
       background-color: #2e7d32;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
+      gap: 20px;
       padding: 10px;
+      flex-wrap: wrap;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
+    .section {
+      display: none;
       padding: 40px 20px;
     }
-    section:nth-child(odd) {
-      background-color: #f1f8e9;
-    }
-    section:nth-child(even) {
-      background-color: #ffffff;
+    .active {
+      display: block;
     }
     .logo {
-      width: 120px;
-      display: block;
-      margin: 0 auto 10px;
+      width: 100px;
+      margin-bottom: 10px;
+    }
+    .lang-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
+    .lang-toggle button {
+      margin: 0 3px;
+      padding: 5px 10px;
+      border: none;
+      background-color: #2e7d32;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
     }
     .products {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 15px;
       justify-content: center;
     }
     .product-card {
@@ -66,24 +75,7 @@
       background-color: #1b5e20;
       color: white;
       text-align: center;
-      padding: 20px;
-    }
-    .lang-toggle {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background-color: #eee;
-      padding: 5px 10px;
-      border-radius: 5px;
-    }
-    .lang-toggle button {
-      margin: 0 5px;
-      padding: 5px 10px;
-      border: none;
-      cursor: pointer;
-      background-color: #2e7d32;
-      color: white;
-      border-radius: 4px;
+      padding: 15px;
     }
   </style>
 </head>
@@ -94,62 +86,61 @@
   </div>
 
   <header>
-    <img src="logo.png" alt="Modhumoti Logo" class="logo">
+    <img src="logo.png" alt="Logo" class="logo">
     <h1>Modhumoti Trade Link</h1>
     <p><em>for the safe exporting</em></p>
   </header>
 
   <nav>
-    <a href="#home">Home / হোম</a>
-    <a href="#services">Services / সেবা</a>
-    <a href="#products">Products / পণ্য</a>
-    <a href="#about">About / পরিচিতি</a>
-    <a href="#contact">Contact / যোগাযোগ</a>
+    <a onclick="showSection('home')">Home / হোম</a>
+    <a onclick="showSection('services')">Services / সেবা</a>
+    <a onclick="showSection('products')">Products / পণ্য</a>
+    <a onclick="showSection('about')">About / পরিচিতি</a>
+    <a onclick="showSection('contact')">Contact / যোগাযোগ</a>
   </nav>
 
-  <section id="home">
-    <h2 data-en="Welcome to Modhumoti Trade Link" data-bn="মধুমতি ট্রেড লিংকে স্বাগতম">Welcome to Modhumoti Trade Link</h2>
-    <p data-en="We export fresh fruits and vegetables with care." data-bn="আমরা সততার সাথে তাজা ফলমূল ও সবজি রপ্তানি করি।">We export fresh fruits and vegetables with care.</p>
+  <section id="home" class="section active">
+    <h2 data-en="Welcome to Modhumoti Trade Link" data-bn="মধুমতি ট্রেড লিংকে স্বাগতম">মধুমতি ট্রেড লিংকে স্বাগতম</h2>
+    <p data-en="We export fresh fruits and vegetables with care." data-bn="আমরা সততার সাথে তাজা ফলমূল ও সবজি রপ্তানি করি।">আমরা সততার সাথে তাজা ফলমূল ও সবজি রপ্তানি করি।</p>
   </section>
 
-  <section id="services">
-    <h2 data-en="Our Services" data-bn="আমাদের সেবা">Our Services</h2>
+  <section id="services" class="section">
+    <h2 data-en="Our Services" data-bn="আমাদের সেবা">আমাদের সেবা</h2>
     <ul>
-      <li data-en="Fruit and vegetable export" data-bn="ফলমূল ও সবজি রপ্তানি">Fruit and vegetable export</li>
-      <li data-en="Betel leaf delivery" data-bn="পান পাতা সরবরাহ">Betel leaf delivery</li>
-      <li data-en="Packing & Custom Clearing" data-bn="প্যাকিং ও কাস্টম ক্লিয়ারিং">Packing & Custom Clearing</li>
-      <li data-en="Import/Export Consultancy" data-bn="আমদানি-রপ্তানি পরামর্শ">Import/Export Consultancy</li>
+      <li data-en="Export of fruits, vegetables, and betel leaf" data-bn="ফল, সবজি ও পান পাতা রপ্তানি">ফল, সবজি ও পান পাতা রপ্তানি</li>
+      <li data-en="Packing and custom clearance support" data-bn="প্যাকিং ও কাস্টম ক্লিয়ারেন্স সহায়তা">প্যাকিং ও কাস্টম ক্লিয়ারেন্স সহায়তা</li>
+      <li data-en="Import-export consultancy" data-bn="আমদানি-রপ্তানি পরামর্শ সেবা">আমদানি-রপ্তানি পরামর্শ সেবা</li>
     </ul>
   </section>
 
-  <section id="products">
-    <h2 data-en="Our Products" data-bn="আমাদের পণ্য">Our Products</h2>
+  <section id="products" class="section">
+    <h2 data-en="Our Products" data-bn="আমাদের পণ্য">আমাদের পণ্য</h2>
     <div class="products">
       <div class="product-card">
         <img src="https://via.placeholder.com/150?text=Betel+Leaf" alt="Betel Leaf">
-        <p data-en="Betel Leaf" data-bn="পান পাতা">Betel Leaf</p>
+        <p data-en="Betel Leaf" data-bn="পান পাতা">পান পাতা</p>
       </div>
       <div class="product-card">
         <img src="https://via.placeholder.com/150?text=Red+Potato" alt="Red Potato">
-        <p data-en="Red Potato" data-bn="লাল আলু">Red Potato</p>
+        <p data-en="Red Potato" data-bn="লাল আলু">লাল আলু</p>
       </div>
       <div class="product-card">
         <img src="https://via.placeholder.com/150?text=Green+Chili" alt="Green Chili">
-        <p data-en="Green Chili" data-bn="কাঁচা মরিচ">Green Chili</p>
+        <p data-en="Green Chili" data-bn="কাঁচা মরিচ">কাঁচা মরিচ</p>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <h2 data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</h2>
-    <p data-en="We are a Bangladeshi export company committed to quality." data-bn="আমরা একটি বাংলাদেশি রপ্তানি কোম্পানি যা গুণগত মানে প্রতিশ্রুতিবদ্ধ।">We are a Bangladeshi export company committed to quality.</p>
+  <section id="about" class="section">
+    <h2 data-en="About Us" data-bn="আমাদের সম্পর্কে">আমাদের সম্পর্কে</h2>
+    <p data-en="We are based in Dhaka, ensuring quality export services." data-bn="আমরা ঢাকা থেকে গুণগত রপ্তানি সেবা নিশ্চিত করি।">আমরা ঢাকা থেকে গুণগত রপ্তানি সেবা নিশ্চিত করি।</p>
+    <p><strong data-en="Address" data-bn="ঠিকানা">ঠিকানা:</strong> 12 L Mallik Complex, Purana Paltan, Dhaka-1000</p>
   </section>
 
-  <section id="contact">
-    <h2 data-en="Contact Us" data-bn="যোগাযোগ করুন">Contact Us</h2>
-    <p><strong data-en="Phone" data-bn="ফোন">Phone:</strong> +8801713584479</p>
-    <p><strong data-en="Email" data-bn="ইমেইল">Email:</strong> modhumotitradelink@gmail.com</p>
-    <p><strong data-en="Address" data-bn="ঠিকানা">Address:</strong> 12 L Mallik Complex, Purana Paltan, Dhaka-1000</p>
+  <section id="contact" class="section">
+    <h2 data-en="Contact Us" data-bn="যোগাযোগ করুন">যোগাযোগ করুন</h2>
+    <p><strong data-en="Phone" data-bn="ফোন">ফোন:</strong> +8801713584479</p>
+    <p><strong data-en="Email" data-bn="ইমেইল">ইমেইল:</strong> modhumotitradelink@gmail.com</p>
   </section>
 
   <footer>
@@ -157,6 +148,13 @@
   </footer>
 
   <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+
     function setLang(lang) {
       document.querySelectorAll('[data-en]').forEach(el => {
         el.innerText = el.getAttribute(`data-${lang}`);
